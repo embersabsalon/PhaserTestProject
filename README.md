@@ -11,4 +11,4 @@ To Use:
 
 4. In Shell: npm install
 
-Use npm run deploy to activate project.
+Use npm run dev to launch project in browser.
