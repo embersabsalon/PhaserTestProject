@@ -6,9 +6,16 @@ export default class extends Phaser.State {
   init() {
     var paddle1;
     var paddle2; 
+    
     var ball_launched;
     var ball_velocity;
     var ball;
+
+    var score1_text;
+    var score2_text;
+
+    var score1;
+    var score2;
   }
 
   preload() { }
@@ -21,23 +28,45 @@ export default class extends Phaser.State {
     this.ball = this.create_ball(this.game.world.centerX,this.game.world.centerY);
 
     this.game.input.onDown.add(this.launch_ball,this);
+
+    this.score1_text = this.game.add.text(128,128,'0',{
+      font: "64px Helvetica",
+      fill: "#ffffff",
+      align: "center"
+    });
+
+    this.score2_text = this.game.add.text(this.game.world.width - 128,128,'0',{
+      font: "64px Helvetica",
+      fill: "#ffffff",
+      align: "center"
+    });
+
+    this.score1 = 0;
+    this.score2 = 0;
   }
 
   update(){
+    this.score1_text.text = this.score1;
+    this.score2_text.text = this.score2;
+
     this.control_paddle(this.paddle1,this.game.input.y);
     this.game.physics.arcade.collide(this.paddle1,this.ball);
     this.game.physics.arcade.collide(this.paddle2,this.ball);
 
     if(this.ball.body.blocked.left){
-      console.log("P2 Scores!");
+      this.score2+=1;
+      console.log(this.score2);
     }
     else if(this.ball.body.blocked.right){
-      console.log("P1 Scores!");
+      this.score1+=1;
+      console.log(this.score1);
     }
 
     this.paddle2.body.velocity.setTo(this.ball.body.velocity.y);
     this.paddle2.body.velocity.x = 0;
     this.paddle2.body.maxVelocity.y = 250;
+
+    
   }
 
   create_paddle(x,y) {
