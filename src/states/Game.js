@@ -1,36 +1,43 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
 import lang from '../lang'
 
 export default class extends Phaser.State {
-  init() { }
+  init() {
+    var paddle1;
+    var paddle2; 
+  }
+
   preload() { }
 
   create() {
-    const bannerText = lang.text('welcome')
-    let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText, {
-      font: '40px Bangers',
-      fill: '#77BFA3',
-      smoothed: false
-    })
-
-    banner.padding.set(10, 16)
-    banner.anchor.setTo(0.5)
-
-    this.mushroom = new Mushroom({
-      game: this.game,
-      x: this.world.centerX,
-      y: this.world.centerY,
-      asset: 'mushroom'
-    })
-
-    this.game.add.existing(this.mushroom)
+    this.paddle1 = this.create_paddle(0,this.game.world.centerY);
+    this.paddle2 = this.create_paddle(this.game.world.width - 16,this.game.world.centerY);
   }
 
-  render() {
-    if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+  update(){
+    this.control_paddle(this.paddle1,this.game.input.y);
+  }
+
+  create_paddle(x,y) {
+    var paddle = this.game.add.sprite(x,y,"paddle");
+    paddle.anchor.setTo(0.5,0.5);
+    this.game.physics.arcade.enable(paddle);
+    paddle.body.collideWorldBounds = true;
+    return paddle;
+  }
+
+  control_paddle(paddle,y){
+    paddle.y = y;
+
+    if(paddle.y < paddle.height/2){
+      paddle.y = paddle.height/2;
+    } 
+
+    else if (paddle.y > this.game.world.height - paddle.height / 2){
+      paddle.y - this.game.world.height - paddle.height /2;
     }
   }
+
+
 }

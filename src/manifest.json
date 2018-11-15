@@ -1,11 +1,11 @@
 {
-    "short_name": "MyPhaserGame",
-    "name": "PhaserES6Webpack",
+    "short_name": "PongPhaser",
+    "name": "PhaserTestPong",
     "start_url": "./index.html",
     "display": "standalone",
     "theme_color": "#ffffff",
     "background_color": "#000000",
-    "description": "Welcome to Phaser + ES6 + Webpack!.",
+    "description": "Pong game made with Phaser3.",
     "icons": [{
       "src": "assets/images/mushroom2.png",
       "sizes": "48x48",

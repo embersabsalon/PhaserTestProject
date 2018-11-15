@@ -1,5 +1,5 @@
 # PhaserTestProject
-Sample project made with Phaser run on webpack:
+Sample pong project made with Phaser run on webpack:
 
 To Use:
 

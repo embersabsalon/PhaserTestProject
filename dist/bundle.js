@@ -4256,9 +4256,15 @@ module.exports = Math.scale || function scale(x, inLow, inHigh, outLow, outHigh)
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
+<<<<<<< HEAD
   gameWidth: 760,
   gameHeight: 400,
   localStorageName: 'phaseres6webpack',
+=======
+  gameWidth: 800,
+  gameHeight: 600,
+  localStorageName: 'PhaserTestPong',
+>>>>>>> develop
   webfonts: ['Bangers']
 });
 
@@ -10716,7 +10722,11 @@ if ('serviceWorker' in navigator) {
 
 /* harmony default export */ __webpack_exports__["a"] = (class extends __WEBPACK_IMPORTED_MODULE_0_phaser___default.a.State {
   init() {
+<<<<<<< HEAD
     this.stage.backgroundColor = '#EDEEC9';
+=======
+    this.stage.backgroundColor = '#000000';
+>>>>>>> develop
     this.fontsReady = false;
     this.fontsLoaded = this.fontsLoaded.bind(this);
   }
@@ -10780,12 +10790,20 @@ if ('serviceWorker' in navigator) {
     //
     // load your assets
     //
+<<<<<<< HEAD
     this.load.image('mushroom', 'assets/images/mushroom2.png');
+=======
+    this.load.image('paddle', 'assets/images/paddle.png');
+>>>>>>> develop
   }
 
   create() {
     this.state.start('Game');
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 });
 
 /***/ }),
@@ -10800,12 +10818,17 @@ if ('serviceWorker' in navigator) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_phaser__ = __webpack_require__(/*! phaser */ 91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_phaser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_phaser__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sprites_Mushroom__ = __webpack_require__(/*! ../sprites/Mushroom */ 345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lang__ = __webpack_require__(/*! ../lang */ 343);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lang__ = __webpack_require__(/*! ../lang */ 343);
+>>>>>>> develop
 /* globals __DEV__ */
 
 
 
+<<<<<<< HEAD
 
 /* harmony default export */ __webpack_exports__["a"] = (class extends __WEBPACK_IMPORTED_MODULE_0_phaser___default.a.State {
   init() {}
@@ -10837,6 +10860,43 @@ if ('serviceWorker' in navigator) {
       this.game.debug.spriteInfo(this.mushroom, 32, 32);
     }
   }
+=======
+/* harmony default export */ __webpack_exports__["a"] = (class extends __WEBPACK_IMPORTED_MODULE_0_phaser___default.a.State {
+  init() {
+    var paddle1;
+    var paddle2;
+  }
+
+  preload() {}
+
+  create() {
+    this.paddle1 = this.create_paddle(0, this.game.world.centerY);
+    this.paddle2 = this.create_paddle(this.game.world.width - 16, this.game.world.centerY);
+  }
+
+  update() {
+    this.control_paddle(this.paddle1, this.game.input.y);
+  }
+
+  create_paddle(x, y) {
+    var paddle = this.game.add.sprite(x, y, "paddle");
+    paddle.anchor.setTo(0.5, 0.5);
+    this.game.physics.arcade.enable(paddle);
+    paddle.body.collideWorldBounds = true;
+    return paddle;
+  }
+
+  control_paddle(paddle, y) {
+    paddle.y = y;
+
+    if (paddle.y < paddle.height / 2) {
+      paddle.y = paddle.height / 2;
+    } else if (paddle.y > this.game.world.height - paddle.height / 2) {
+      paddle.y - this.game.world.height - paddle.height / 2;
+    }
+  }
+
+>>>>>>> develop
 });
 
 /***/ }),
@@ -10864,7 +10924,10 @@ const centerGameObjects = objects => {
   !*** ./src/lang.js ***!
   \*********************/
 /*! exports provided: default */
+<<<<<<< HEAD
 /*! exports used: default */
+=======
+>>>>>>> develop
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10881,7 +10944,11 @@ const lang = __WEBPACK_IMPORTED_MODULE_0_idiom_js___default()({
   }
 });
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["a"] = (lang(window.navigator.language));
+=======
+/* unused harmony default export */ var _unused_webpack_default_export = (lang(window.navigator.language));
+>>>>>>> develop
 
 /***/ }),
 /* 344 */
@@ -10939,6 +11006,7 @@ var idiom = function idiom(languages) {
 
 exports.default = idiom;
 
+<<<<<<< HEAD
 /***/ }),
 /* 345 */
 /*!*********************************!*\
@@ -10964,6 +11032,8 @@ exports.default = idiom;
   }
 });
 
+=======
+>>>>>>> develop
 /***/ })
 ],[130]);
 //# sourceMappingURL=bundle.js.map
