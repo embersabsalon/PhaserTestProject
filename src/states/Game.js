@@ -25,6 +25,19 @@ export default class extends Phaser.State {
 
   update(){
     this.control_paddle(this.paddle1,this.game.input.y);
+    this.game.physics.arcade.collide(this.paddle1,this.ball);
+    this.game.physics.arcade.collide(this.paddle2,this.ball);
+
+    if(this.ball.body.blocked.left){
+      console.log("P2 Scores!");
+    }
+    else if(this.ball.body.blocked.right){
+      console.log("P1 Scores!");
+    }
+
+    this.paddle2.body.velocity.setTo(this.ball.body.velocity.y);
+    this.paddle2.body.velocity.x = 0;
+    this.paddle2.body.maxVelocity.y = 250;
   }
 
   create_paddle(x,y) {
@@ -32,6 +45,7 @@ export default class extends Phaser.State {
     paddle.anchor.setTo(0.5,0.5);
     this.game.physics.arcade.enable(paddle);
     paddle.body.collideWorldBounds = true;
+    paddle.body.immovable = true;
     return paddle;
   }
 
