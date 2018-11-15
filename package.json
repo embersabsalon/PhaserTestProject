@@ -1,8 +1,8 @@
 {
-  "name": "phaseres6webpack",
+  "name": "phasertestprojectpong",
   "version": "1.0.0",
-  "description": "Sample project made with Phaser run on webpack:",
-  "author": "leandro cabrera <leandcabrera@gmail.com>",
+  "description": "Sample project of Pong made with Phaser run on webpack:",
+  "author": "Ember Jhon Sabsalon <embersabsalon@protonmail.com>",
   "main": "index.js",
   "scripts": {
     "dev": "webpack",

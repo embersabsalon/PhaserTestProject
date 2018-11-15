@@ -3,9 +3,6 @@
     <name>PhaserES6Webpack</name>
     <description>
     </description>
-    <author email="leandcabrera@gmail.com" href="">
-        leandro cabrera
-    </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
