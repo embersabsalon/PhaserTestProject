@@ -10840,7 +10840,7 @@ const centerGameObjects = objects => {
     this.ball_launched = false;
     this.ball_velocity = 400;
     this.paddle1 = this.create_paddle(0, this.game.world.centerY);
-    this.paddle2 = this.create_paddle(this.game.world.width - 16, this.game.world.centerY);
+    this.paddle2 = this.create_paddle(this.game.world.width - 8, this.game.world.centerY);
     this.ball = this.create_ball(this.game.world.centerX, this.game.world.centerY);
 
     this.game.input.onDown.add(this.launch_ball, this);
@@ -10868,6 +10868,7 @@ const centerGameObjects = objects => {
     this.game.physics.arcade.enable(paddle);
     paddle.body.collideWorldBounds = true;
     paddle.body.immovable = true;
+    paddle.scale.setTo(0.5, 0.5);
     return paddle;
   }
 
